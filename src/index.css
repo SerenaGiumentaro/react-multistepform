@@ -5,3 +5,10 @@ body{
     justify-content: center;
     align-items: center;
 }
+.flex-center{
+    display: flex;
+    align-items: center;
+}
+.row{
+    flex-direction: row;
+}

@@ -1,19 +1,18 @@
-import { useContext } from "react"
+import { useContext } from "react";
 import { activeStepContext } from "../../components/Layout";
 
 export default function NavigationsSteps() {
-  const step= useContext(activeStepContext)
-  
-  
-  const nextStep = (step) => {
-    step.setStep(step.step + 1)
-    console.log(step.step);
-  }
-  
+  const { activeStep, setActiveStep } = useContext(activeStepContext);
+  const nextStep = () => {
+    setActiveStep(activeStep + 1);
+  };
+  const prevStep = () => {
+    setActiveStep(activeStep - 1);
+  };
   return (
     <>
-   <button>Go back</button>
-   {/* <button onClick={nextStep(step)}>Next</button> */}
+      <button onClick={prevStep}>Go back</button>
+      <button onClick={nextStep}>Go next</button>
     </>
-  )
+  );
 }

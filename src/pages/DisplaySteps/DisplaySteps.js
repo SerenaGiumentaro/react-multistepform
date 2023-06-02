@@ -1,14 +1,29 @@
+import { activeStepContext } from "../../components/Layout";
 import Step from "../Step/Step";
-
+import styleDisplayStep from "./DisplaySteps.module.css";
 
 export default function DisplaySteps() {
+  const stepExplained = ["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY"];
+
+  const steps = stepExplained.map((stepCounter) => {
+    return (
+      <Step
+        key={stepExplained.indexOf(stepCounter)}
+        step={stepExplained.indexOf(stepCounter) + 1}
+        stepExplained={stepCounter}
+      />
+    );
+  });
   return (
-    <div style={{display: 'flex', backgroundColor: 'green'}}>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-        <Step />
+    <div
+      className={styleDisplayStep.sidebar}
+      style={{
+        backgroundImage: `url(${
+          require("../../img/bg-sidebar-desktop.svg").default
+        })`,
+      }}
+    >
+      {steps}
     </div>
-  )
+  );
 }
