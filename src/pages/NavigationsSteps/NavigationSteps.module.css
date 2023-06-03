@@ -1,0 +1,42 @@
+.back-btn{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+}
+.next-btn, .confirm-btn{
+    border-radius: 4px;
+    color: var(--alabaster);
+    height: 35px;
+    width: 88px;
+    font-weight: 500;
+    float: right;
+    cursor: pointer;
+    
+}
+.confirm-btn{
+    background: var(--purplish-blue);
+}
+.next-btn{
+    background: var(--marine-blue);
+
+}
+.navigation-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+
+}
+@media screen and (max-width: 375px) {
+    .navigation-container{
+        position: absolute;
+        width: 100vw;
+        height: 70px;
+        bottom: 0;
+        background: var(--alabaster);
+    }
+    
+}

@@ -1,22 +1,37 @@
 .step {
-    color: white;
-    margin: 10px;
-    font-size: 0.5em;
-    height: 3em;
-    width: 3em;
+    color:var(--light-blue);
+    font-weight: 700;
+    margin: 12px;
+    font-size: 10px;
+    height: 25px;
+    width: 25px;
     display: flex;
-    border: 1px solid white;
+    border: 1.5px solid #fff;
     border-radius: 100%;
     align-items: center;
     justify-content: center;
 }
 
 .step-description{
-    color: white;
-    font-size: 0.5em;
+    color: var(--alabaster);
+    font-size:8px;
+    font-weight: 500;
+    letter-spacing: 1px;
     display:flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    gap: 0.2em;
+}
+.step-number{
+    color: var(--pastel-blue)
+}
+
+
+@media screen and (max-width: 375px) {
+    .step-description{
+        display: none;
+    }
+    .step{
+        margin: 8px
+    }
 }

@@ -1,3 +1,24 @@
-.flex-center{
+.multi-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.form-container{
+    width: 40vw;
+    height: 200px;
+    background: var(--alabaster);
+    max-width: 500px;
+    min-width: 200px;
 
+}
+@media screen and (max-width: 375px) {
+    .form-container{
+        position: absolute;
+        top: 10%;
+        width: 90vw;
+        border-radius: 8px;
+        height: 50vh;
+    }
 }

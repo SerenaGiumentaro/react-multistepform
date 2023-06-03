@@ -7,7 +7,10 @@ import React from 'react'
 
 export default function MultiStepFormContainer() {
   return (
-    <div className={multiStepFormStyle.ciao} >MultiStepFormContainer
+    <div className={multiStepFormStyle['multi-form-container']} >
+      <div className={multiStepFormStyle['form-container']} >
+        form 
+      </div>
     <NavigationsSteps />
     </div>
   )

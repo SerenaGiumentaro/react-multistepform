@@ -4,11 +4,12 @@ import stepStyle from "./Step.module.css";
 
 export default function Step({ step, stepExplained }) {
   const activeState = {
-    background: "white",
-    color: "black",
+    background: "var(--light-blue)",
+    color: "var(--marine-blue)",
+    border: 'none'
   };
 
-  const { activeStep, setActiveStep } = useContext(activeStepContext);
+  const { activeStep } = useContext(activeStepContext);
   return (
     <div
       className="flex-center row"
@@ -22,7 +23,7 @@ export default function Step({ step, stepExplained }) {
       <div
         className={stepStyle['step-description']}
       >
-        <p>STEP {step}</p>
+        <p className={stepStyle['step-number']}>STEP {step}</p>
         <p>{stepExplained}</p>
       </div>
     </div>

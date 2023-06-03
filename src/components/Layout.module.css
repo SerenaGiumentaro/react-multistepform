@@ -1,3 +1,14 @@
-.layoutContainer {
-    background-color: red;
+.layout{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    border-radius: 12px;
+    background: var(--alabaster);
+}
+
+@media screen and (max-width: 375px) {
+    .layout{
+        flex-direction: column;
+        padding: 0;
+    }
 }

@@ -2,6 +2,22 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-image: url('../../img/bg-sidebar-desktop.svg');
+  padding: 1rem 2rem 10rem 1rem;
+  width: 10rem;
+}
+
+@media screen  and (max-width: 375px){
+  .sidebar{
+    background-image:  url('../../img/bg-sidebar-mobile.svg');
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    width: 100vw;
+    height: 10rem;
+    padding: 1rem 0;
+  }
 }

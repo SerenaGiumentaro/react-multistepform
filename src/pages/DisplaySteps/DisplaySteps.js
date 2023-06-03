@@ -1,4 +1,3 @@
-import { activeStepContext } from "../../components/Layout";
 import Step from "../Step/Step";
 import styleDisplayStep from "./DisplaySteps.module.css";
 
@@ -17,11 +16,6 @@ export default function DisplaySteps() {
   return (
     <div
       className={styleDisplayStep.sidebar}
-      style={{
-        backgroundImage: `url(${
-          require("../../img/bg-sidebar-desktop.svg").default
-        })`,
-      }}
     >
       {steps}
     </div>
