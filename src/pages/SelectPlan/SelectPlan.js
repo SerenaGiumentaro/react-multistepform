@@ -1,7 +1,10 @@
-import React from "react";
+import {useContext} from "react";
 import Plan from "../Plan/Plan";
+import ToggleYrMo from "../ToggleYrMo/ToggleYrMo";
+import { isMonthlyContext } from "../MultiStepFormContainer/MultiStepFormContainer";
 
 export default function SelectPlan() {
+  const {isMonthly} = useContext(isMonthlyContext)
   const plansData = [
     {
       svg: (
@@ -70,17 +73,17 @@ export default function SelectPlan() {
       yearlyPrice: "$150/yr",
     },
   ];
-  const plans = plansData.map((plan) => {
+  const plans = plansData.map((plan, index) => {
     return (
       <Plan
+        key={index}
         svgPlan={plan.svg}
         planTitle={plan.planTitle}
-        planPrice={plan.monthlyPrice}
+        planPrice={isMonthly? plan.monthlyPrice : plan.yearlyPrice}
       />
     );
   });
   return( <div>{plans}
-
-
+<ToggleYrMo/>
   </div>)
 }
