@@ -1,10 +1,28 @@
-import {useContext} from "react";
+import { useContext, useState } from "react";
 import Plan from "../Plan/Plan";
 import ToggleYrMo from "../ToggleYrMo/ToggleYrMo";
-import { isMonthlyContext } from "../MultiStepFormContainer/MultiStepFormContainer";
+import {
+  isMonthlyContext,
+} from "../MultiStepFormContainer/MultiStepFormContainer";
 
-export default function SelectPlan() {
-  const {isMonthly} = useContext(isMonthlyContext)
+export default function SelectPlan({handleMoYrToggle, handleSelectPlan}) {
+  const { isMonthly } = useContext(isMonthlyContext)
+  const [selectedPlan, setSelectedPlan] = useState(0);
+  const handleToggle = () => {
+    handleMoYrToggle()
+  }
+  const hadlePlanSelection = (planIndex) => {
+    setSelectedPlan(planIndex);
+     handleSelectPlan({
+        planTitle: plansData[planIndex].planTitle,
+        billingType: isMonthly ? "Monthly" : "Yearly",
+        price: isMonthly
+          ? plansData[planIndex].monthlyPrice
+          : plansData[planIndex].yearlyPrice,
+      })
+    
+   
+  };
   const plansData = [
     {
       svg: (
@@ -77,13 +95,19 @@ export default function SelectPlan() {
     return (
       <Plan
         key={index}
+        selected={selectedPlan === index}
+        planId={index}
         svgPlan={plan.svg}
         planTitle={plan.planTitle}
-        planPrice={isMonthly? plan.monthlyPrice : plan.yearlyPrice}
+        planPrice={isMonthly ? plan.monthlyPrice : plan.yearlyPrice}
+        onClick={() => hadlePlanSelection(index)}
       />
     );
   });
-  return( <div>{plans}
-<ToggleYrMo/>
-  </div>)
+  return (
+    <div>
+      {plans}
+      <ToggleYrMo onToggle={handleToggle}/>
+    </div>
+  );
 }

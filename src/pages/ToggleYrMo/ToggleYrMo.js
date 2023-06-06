@@ -1,10 +1,10 @@
-import {useContext} from 'react'
-import { isMonthlyContext } from '../MultiStepFormContainer/MultiStepFormContainer'
+// import {useContext} from 'react'
+// import { isMonthlyContext } from '../MultiStepFormContainer/MultiStepFormContainer'
 
-export default function ToggleYrMo() {
-    const {isMonthly, setIsMonthly} = useContext(isMonthlyContext)
+export default function ToggleYrMo({onToggle}) {
+    // const {isMonthly, setIsMonthly} = useContext(isMonthlyContext)
     const toggleYrMo = () => {
-        setIsMonthly(!isMonthly)
+        onToggle()
     }
   return (
     <div>
